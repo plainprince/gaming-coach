@@ -1,4 +1,4 @@
-import { appConfig, ensureDirectories } from './config.js';
+import { appConfig } from './config.js';
 import ScreenshotCapture from './screenshot.js';
 import LLMClient from './llm.js';
 import TTSEngine from './tts.js';
@@ -29,9 +29,6 @@ class GamingCoach {
    */
   async initialize(): Promise<void> {
     logger.info('Gaming Coach - Initializing...');
-
-    // Ensure required directories exist
-    ensureDirectories();
 
     // Initialize each module
     await this.screenshotCapture.initialize();

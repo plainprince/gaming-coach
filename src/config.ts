@@ -78,7 +78,6 @@ export function loadConfig(): AppConfig {
       provider: (process.env.TTS_PROVIDER as 'auto' | 'none') || 'auto',
       piperPath: process.env.PIPER_PATH || './piper/piper',
       edgeVoice: process.env.EDGE_TTS_VOICE || 'en-US-AriaNeural',
-      dir: process.env.TTS_DIR || './audio',
       rate: parseFloat(process.env.TTS_RATE || '1.0'),
       pitch: parseFloat(process.env.TTS_PITCH || '0'),
       volume: parseFloat(process.env.TTS_VOLUME || '1.0'),
@@ -106,12 +105,5 @@ export function loadConfig(): AppConfig {
  * Get the global configuration instance
  */
 export const appConfig = loadConfig();
-
-/**
- * Validate that required directories exist
- */
-export function ensureDirectories(): void {
-  // No directories to create since audio output is not used
-}
 
 export default appConfig;

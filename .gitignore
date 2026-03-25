@@ -17,10 +17,6 @@ screenshots/
 *.jpg
 *.jpeg
 
-# Audio output
-*.mp3
-*.wav
-
 # Build output
 dist/
 build/
