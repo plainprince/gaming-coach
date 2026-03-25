@@ -94,6 +94,20 @@ const { app, BrowserWindow, screen } = require('electron');
 const path = require('path');
 
 app.disableHardwareAcceleration();
+app.commandLine.appendSwitch('disable-gpu-sandbox');
+app.commandLine.appendSwitch('no-sandbox');
+app.commandLine.appendSwitch('disable-gpu-compositing');
+app.setActivationPolicy('accessory');
+
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+}
+
+app.on('window-all-closed', () => {
+  app.quit();
+});
+
 app.whenReady().then(() => {
   const primaryDisplay = screen.getPrimaryDisplay();
   const { width: screenWidth, height: screenHeight } = primaryDisplay.workAreaSize;
@@ -167,9 +181,9 @@ app.whenReady().then(() => {
   win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
   win.setIgnoreMouseEvents(true, { forward: true });
   
-  // Show the window only after it's ready, without activating/focusing it
+   // Show the window without activating/focusing it
   win.once('ready-to-show', () => {
-    win.show();
+    win.showInactive();
   });
   win.loadFile('${this.tempHtmlPath.replace(/\\/g, '\\\\')}');
   

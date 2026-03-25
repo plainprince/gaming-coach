@@ -37,3 +37,7 @@ bun.lockb
 # Temporary files
 *.tmp
 *.temp
+
+temp_overlay.cjs
+temp_overlay.html
+tsconfig.tsbuildinfo

@@ -44,10 +44,6 @@ export class LLMClient {
   }
 
   /**
-   * Check if enough time has passed since last analysis
-   */
-
-  /**
    * Get last advice
    */
   getLastAdvice(): string {
