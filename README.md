@@ -22,18 +22,12 @@ AI-powered gaming coach that analyzes gameplay screenshots and provides real-tim
 ## Installation
 
 ```bash
-# Install dependencies
 bun install
-
-# Copy environment configuration
-cp .env.example .env
-
-# Edit .env with your preferences
 ```
 
 ## Configuration
 
-Edit `.env` to configure:
+Copy `.env.example` to `.env` and edit with your preferences:
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -81,15 +75,8 @@ gaming-coach/
 
 ## Troubleshooting
 
-### Ollama connection refused
-Make sure Ollama is running: `ollama serve`
-
-### No screenshots captured
-Check that the screenshots directory has proper permissions.
-
-### TTS not working
-- On macOS: Uses built-in `say` command as fallback
-- For better TTS: Install Piper from https://github.com/rhasspy/piper
+- **Ollama connection**: Run `ollama serve` and `ollama pull llama3.2-vision`
+- **TTS fallback**: On macOS uses built-in `say` command
 
 ## License
 
